@@ -1,8 +1,9 @@
 /**
- * StringÀÇ ¹è¿­
- * °¢ string¿¡ °øÅëÀ¸·Î Á¸ÀçÇÏ´Â Á¢µÎ»ç Ã£±â
+ * Stringì˜ ë°°ì—´
+ * ê° stringì— ê³µí†µìœ¼ë¡œ ì¡´ì¬í•˜ëŠ” ì ‘ë‘ì‚¬ ì°¾ê¸°
  * */
-package ¿¬½À¿ë;
+package ì—°ìŠµìš©;
+
 import java.util.Scanner;
 
 public class longestCommonPrefix {
@@ -11,60 +12,33 @@ public class longestCommonPrefix {
 		
 		String[] strs = new String[3];  
 		
-		// ¹®ÀÚ¿­ ÀÔ·Â¹Ş±â
+		// ë¬¸ìì—´ ì…ë ¥ë°›ê¸°
 		int i, j;
 		for(i = 0; i < strs.length; i++) {
 			strs[i] = keyboard.nextLine();
 		}
 		
-		String standard = "", common = "";
+		String standard = strs[0], common = "";
+		int length = 0;
 		
-		// index°¡ ¹ş¾î³ª´Â °ÍÀ» ¹æÁöÇÏ±â À§ÇØ string °³¼öº°·Î common prefix µû·Î °è»êÇØÁÖ±â
-		if(strs.length == 0) {  // ¾Æ¹«°Íµµ ¾øÀ» ¶§´Â ±×³É ºó string
-			standard = "";
-		}
-        else if(strs.length == 1){  // ¹®ÀÚ¿­ÀÌ ÇÑ °³ÀÏ ¶§´Â ±× ¹®ÀÚ¿­ ÀÚÃ¼
+        if(strs.length == 1){  // ë¬¸ìì—´ì´ í•œ ê°œì¼ ë•ŒëŠ” ê·¸ ë¬¸ìì—´ ìì²´
             standard = strs[0];
         }
-        else if(strs.length == 2){  // ¹®ÀÚ¿­ÀÌ µÎ °³ÀÏ ¶§´Â µÎ °¡Áö ¹®ÀÚ¿­À» ºñ±³
-            int length = Math.min(strs[0].length(), strs[1].length());  // for¹®¿¡¼­ index°¡ ¹ş¾î³ª´Â °ÍÀ» ¸·±â À§ÇØ ´õ ÂªÀº ¹®ÀÚ¿­±îÁö¸¸ ºñ±³
-		
-		    for(i = 0; i < length; i++) {
-			    if(strs[0].charAt(i) == strs[1].charAt(i)) {
-				    standard = standard + strs[0].charAt(i);
-			    }
-                else{
-                    break;
-                }
-		    }
-        }
-        else if(strs.length > 2){  // ¼¼ °³ ÀÌ»óÀÇ ¹®ÀÚ¿­ÀÌ ÀÖ´Â °æ¿ì ¿©·¯°¡Áö ±âÁØÀÌ µÇ´Â standard¸¦ Á¤ÇÏ°í °Å±â¿¡ ºñ±³
-            int length = Math.min(strs[0].length(), strs[1].length());  // for¹®¿¡¼­ index°¡ ¹ş¾î³ª´Â °ÍÀ» ¸·±â À§ÇØ ´õ ÂªÀº ¹®ÀÚ¿­±îÁö¸¸ ºñ±³
-		
-		    for(i = 0; i < length; i++) {  // ±âÁØÀ» ¸ÕÀú Á¤ÇØÁÜ
-			    if(strs[0].charAt(i) == strs[1].charAt(i)) {
-				    standard = standard + strs[0].charAt(i);
-			    }
-                else{  // else¿¡ break¸¦ ³ÖÀº ÀÌÀ¯´Â µü ÀÏÄ¡ÇÏ´Â °÷±îÁö¸¸ È®ÀÎÇÏ±â À§ÇÔ
-                    break;
-                }
-		    }
-		
-		    for(i = 2; i < strs.length; i++) {
-			    length = Math.min(strs[i].length(), standard.length());  // for¹®¿¡¼­ index°¡ ¹ş¾î³ª´Â °ÍÀ» ¸·±â À§ÇØ ´õ ÂªÀº ¹®ÀÚ¿­±îÁö¸¸ ºñ±³
-			    for(j = 0; j < length; j++) {
-				    if(standard.charAt(j) == strs[i].charAt(j)) {  // ±âÁØ°ú ´Ù¸¥ ¹®ÀÚ¿­µéÀ» ºñ±³
-					    common = common + strs[i].charAt(j);
-				    }
-                    else{
-                        break;
-                    }
-			    }
-			    standard = common;  // standard ¾÷µ¥ÀÌÆ®
-			    common = "";  // ÈÄ common ÃÊ±âÈ­
-		    }
-        }
-        
-		System.out.println(standard);
-	}
+        else {
+		    for(i = 1; i < strs.length; i++) {
+		    	length = Math.min(standard.length(), strs[i].length());  // forë¬¸ì—ì„œ indexê°€ ë²—ì–´ë‚˜ëŠ” ê²ƒì„ ë§‰ê¸° ìœ„í•´ ë” ì§§ì€ ë¬¸ìì—´ê¹Œì§€ë§Œ ë¹„êµ
+		    	for(j = 0; j < length; j++) {
+		    		if(standard.charAt(j) == strs[i].charAt(j)) {  // ê¸°ì¤€ê³¼ ë‹¤ë¥¸ ë¬¸ìì—´ë“¤ì„ ë¹„êµ
+						common += strs[i].charAt(j);
+					}
+	                else{
+	                    break;
+	                }
+		    	}
+		    	standard = common;  // standard ì—…ë°ì´íŠ¸
+				common = "";  // í›„ common ì´ˆê¸°í™”
+			}
+		}
+        System.out.println(standard);
+    }
 }
