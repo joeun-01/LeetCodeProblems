@@ -1,64 +1,16 @@
 /**
- * integer nums[]¿Í integer target
- * nums[]¿¡¼­ µÎ °³ÀÇ ¼ıÀÚ¸¦ °ñ¶ó ´õÇßÀ» ¶§ targetÀÌ µÇ´Â index Ã£±â
+ * integer nums[]ì™€ integer target
+ * nums[]ì—ì„œ ë‘ ê°œì˜ ìˆ«ìë¥¼ ê³¨ë¼ ë”í–ˆì„ ë•Œ targetì´ ë˜ëŠ” index ì°¾ê¸°
  * */
-package ¿¬½À¿ë;
+package ì—°ìŠµìš©;
 import java.util.Scanner;
 import java.util.HashMap;
 
 public class twoSum {
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in);
-		
-		/*
-		// °ª ÀÔ·Â¹Ş±â
-		int[] nums = new int[4];
-		
-		int i;
-		System.out.println("Nums: ");
-		for(i = 0; i < 4; i++) {
-			nums[i] = keyboard.nextInt();
-		}
-		
-		System.out.println("Target: ");
-		int target = keyboard.nextInt();
-		
-		HashMap<Integer, Integer> sum = new HashMap<>();  // hashmap¿¡ x, target - x °ª ÀúÀå
-		
-		int dup = 0;  // È¤½Ã targetÀ» 3 3ÀÌ³ª 4 4 µî °°Àº ¾Ö·Î ¸¸µé ¼ö ÀÖ´Â Áö È®ÀÎ
-		for(i = 0; i < nums.length; i++) {
-			if(sum.containsKey(nums[i]) && nums[i] == sum.get(nums[i])) {  // Â¦¼öÀÌ°í nums¿¡ °°Àº °ªÀÌ µÎ °³ ÀÖ¾î¾ß Áßº¹À¸·Î °è»ê
-				dup = 1;
-			}
-			sum.put(nums[i], target - nums[i]);
-		}
-		
-		for(i = 0; i < nums.length; i++) {
-			if(dup == 1) {  // dupÀÇ °æ¿ì Àı¹İÀ¸·Î ³ª´« ¼ıÀÚ°¡ ÀÖ´Â index¸¸ Ã£À¸¸é µÊ
-				if(nums[i] == (target / 2)) {
-					//System.out.print(i + " ");
-				}
-			}
-			else {  // dupÀÌ ¾Æ´Ñ °æ¿ì key¿Í value¿¡ matchingµÇ´Â °ªÀ» nums¿¡¼­ Ã£À½
-				
-				for(Integer key : sum.keySet()) {
-					if(target % 2 == 0) {  // Â¦¼öÀÏ ¶§´Â target / 2ÀÎ °ªÀÌ ÇÑ °³¸¸ ÀÖ´Â °æ¿ì¸¦ Á¦¿Ü½ÃÄÑÁÖ¾î¾ß ÇÔ
-						if(nums[i] != target / 2 && (nums[i] == sum.get(key) || nums[i] == key)) {
-							System.out.println(i + " ");
-						}
-					}
-					else {	
-						if(nums[i] == sum.get(key) || nums[i] == key) {
-							System.out.println(i + " ");
-						}
-					}
-				}
-			}
-			
-		}
-		*/
-		
-		int[] nums = new int[4];
+
+		int[] nums = new int[4];  // nums[], target ì…ë ¥ë°›ê¸°
 		int i;
 		
 		System.out.println("Nums: ");
@@ -69,36 +21,33 @@ public class twoSum {
 		System.out.println("Target: ");
 		int target = keyboard.nextInt();
 		
-		HashMap<Integer, Integer> sum = new HashMap<>();
-		int dup = 0;
+		HashMap<Integer, Integer> sum = new HashMap<>();  // nums[]ì˜ indexì™€ value ì €ì¥í•  hashmap
+		int dup = 0;  // ê°™ì€ ìˆ«ì ë‘ ê°œë¥¼ ë”í•´ì•¼ targetì„ ë§Œë“¤ ìˆ˜ ìˆëŠ” ì§€ ì—¬ë¶€ í™•ì¸
 		
 		for(i = 0; i < nums.length; i++) {
-			if(target % 2 == 0 && nums[i] == target / 2 && sum.containsValue(nums[i])) {  // Â¦¼öÀÌ°í nums¿¡ °°Àº °ªÀÌ µÎ °³ ÀÖ¾î¾ß Áßº¹À¸·Î °è»ê
-				dup = 1;
+			if(target % 2 == 0 && nums[i] == target / 2 && sum.containsValue(nums[i])) { 
+				dup = 1;  // ì§ìˆ˜ì´ê³  target / 2ì¸ valueê°€ hashmapì— 2ê°œ ìˆëŠ” ê²½ìš°ì—ë§Œ dup ê°’ì„ ë°”ê¿”ì¤Œ
 			}
-			sum.put(i, nums[i]);
+			sum.put(i, nums[i]);  // ì¼ë‹¨ ë‹¤ ë„£ì–´ì£¼ê¸°
 		}
 		
-		System.out.println(dup);
-		
-		for(Integer key : sum.keySet()) {
-			if(dup == 1) {
+		for(Integer key : sum.keySet()) {  // hashmap ì „ì²´ ê²€ì‚¬
+			if(dup == 1) {  // dup = 1ì¸ ê²½ìš° target / 2ì¸ valueë§Œ 2ê°œ ì°¾ìœ¼ë©´ ë¨
 				if(sum.get(key) == target / 2) {
-					System.out.print(key + " ");
+					System.out.print(key + " ");  // ì¶œë ¥ì€ index
 				}
 			}
 			else {
-				if(target % 2 == 0) {
+				if(target % 2 == 0) {  // dupì´ ì•„ë‹Œ ê²½ìš° target / 2ê°€ í•˜ë‚˜ë§Œ ìˆëŠ” ê²½ìš°ë¥¼ ê±¸ëŸ¬ì£¼ì–´ì•¼ í•¨ - ì§ìˆ˜ì—ë§Œ í•´ë‹¹
 					if(sum.get(key) != target - sum.get(key) && sum.containsValue(target - sum.get(key))) {
 						System.out.print(key + " ");
 					}
 				}
-				else {
-					if(sum.containsValue(target - sum.get(key))) {
+				else {  // ì§, í™€ ëª¨ë‘ value = target - valueì¸ keyë§Œ ì¶œë ¥
+					if(sum.containsValue(target - sum.get(key))) {  // target - valueë¥¼ í™•ì¸í•˜ëŠ” ì´ìœ ëŠ” ê°’ì´ ì¡´ì¬í•˜ë©´ ì§ì„ ì´ë£¨ê³  ìˆë‹¤ëŠ” ë§ì´ê¸° ë•Œë¬¸
 						System.out.print(key + " ");
 					}
 				}
-				
 			}
 		}
 	}
