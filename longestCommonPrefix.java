@@ -1,8 +1,8 @@
 /**
- * Stringì˜ ë°°ì—´
- * ê° stringì— ê³µí†µìœ¼ë¡œ ì¡´ì¬í•˜ëŠ” ì ‘ë‘ì‚¬ ì°¾ê¸°
+ * StringÀÇ ¹è¿­
+ * °¢ string¿¡ °øÅëÀ¸·Î Á¸ÀçÇÏ´Â Á¢µÎ»ç Ã£±â
  * */
-package ì—°ìŠµìš©;
+package ¿¬½À¿ë;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class longestCommonPrefix {
 		
 		String[] strs = new String[3];  
 		
-		// ë¬¸ìì—´ ì…ë ¥ë°›ê¸°
+		// ¹®ÀÚ¿­ ÀÔ·Â¹Ş±â
 		int i, j;
 		for(i = 0; i < strs.length; i++) {
 			strs[i] = keyboard.nextLine();
@@ -21,22 +21,22 @@ public class longestCommonPrefix {
 		String standard = strs[0], common = "";
 		int length = 0;
 		
-        if(strs.length == 1){  // ë¬¸ìì—´ì´ í•œ ê°œì¼ ë•ŒëŠ” ê·¸ ë¬¸ìì—´ ìì²´
+        if(strs.length == 1){  // ¹®ÀÚ¿­ÀÌ ÇÑ °³ÀÏ ¶§´Â ±× ¹®ÀÚ¿­ ÀÚÃ¼
             standard = strs[0];
         }
         else {
 		    for(i = 1; i < strs.length; i++) {
-		    	length = Math.min(standard.length(), strs[i].length());  // forë¬¸ì—ì„œ indexê°€ ë²—ì–´ë‚˜ëŠ” ê²ƒì„ ë§‰ê¸° ìœ„í•´ ë” ì§§ì€ ë¬¸ìì—´ê¹Œì§€ë§Œ ë¹„êµ
+		    	length = Math.min(standard.length(), strs[i].length());  // for¹®¿¡¼­ index°¡ ¹ş¾î³ª´Â °ÍÀ» ¸·±â À§ÇØ ´õ ÂªÀº ¹®ÀÚ¿­±îÁö¸¸ ºñ±³
 		    	for(j = 0; j < length; j++) {
-		    		if(standard.charAt(j) == strs[i].charAt(j)) {  // ê¸°ì¤€ê³¼ ë‹¤ë¥¸ ë¬¸ìì—´ë“¤ì„ ë¹„êµ
+		    		if(standard.charAt(j) == strs[i].charAt(j)) {  // ±âÁØ°ú ´Ù¸¥ ¹®ÀÚ¿­µéÀ» ºñ±³
 						common += strs[i].charAt(j);
 					}
 	                else{
 	                    break;
 	                }
 		    	}
-		    	standard = common;  // standard ì—…ë°ì´íŠ¸
-				common = "";  // í›„ common ì´ˆê¸°í™”
+		    	standard = common;  // standard ¾÷µ¥ÀÌÆ®
+				common = "";  // ÈÄ common ÃÊ±âÈ­
 			}
 		}
         System.out.println(standard);
