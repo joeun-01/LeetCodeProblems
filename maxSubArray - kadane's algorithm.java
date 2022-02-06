@@ -1,7 +1,7 @@
 /**
  * integer nums[]
  * nums[]에서 더했을 때 가장 큰 값을 갖는 부분 배열의 합 구하기 - kadane's algorithm 이용
- * kadane's algorithm : 전체 배x에서 최대 합을 가지는 부분 배열을 구하는 알고리즘
+ * kadane's algorithm : 전체 배열에서 최대 합을 가지는 부분 배열을 구하는 알고리즘
  *  - dynamic programming 이용
  *  - 핵심 공식 : max(nums[i], nums[i] + nums[i-1])
  *  - nums[i]가 max값으로 결정 된 경우 해당 nums[i]부터 최대 합을 가지는 새로운 부분 배열이 시작한다고 생각
