@@ -1,24 +1,24 @@
 /**
  * String s
- * s°¡ ´ëÄªÀÎÁö ¾Æ´ÑÁö Ãâ·Â
+ * sê°€ ëŒ€ì¹­ì¸ì§€ ì•„ë‹Œì§€ ì¶œë ¥
  */
-package ¿¬½À¿ë;
+package ì—°ìŠµìš©;
 import java.util.Scanner;
 
 public class isPalindrome {
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in);
 		
-		// °ª ÀÔ·Â ¹Ş±â
+		// ê°’ ì…ë ¥ ë°›ê¸°
 		String s = keyboard.nextLine();
 		
-		s = s.toLowerCase();  // ´ë¼Ò¹®ÀÚ ±¸ºĞÀ» ¾ø¾ÖÁÖ±â À§ÇØ »ç¿ë
-		s = s.replaceAll("[^0-9a-zA-Z]", "");  // Æ¯¼ö¹®ÀÚ, ¶ç¾î¾²±â Á¦°Å
+		s = s.toLowerCase();  // ëŒ€ì†Œë¬¸ì êµ¬ë¶„ì„ ì—†ì• ì£¼ê¸° ìœ„í•´ ì‚¬ìš©
+		s = s.replaceAll("[^0-9a-zA-Z]", "");  // íŠ¹ìˆ˜ë¬¸ì, ë„ì–´ì“°ê¸° ì œê±°
 		
 		int i, suc = 1;
 		for(i = 0; i < s.length(); i++) {
-			if(s.charAt(i) != s.charAt(s.length() - i - 1)) {  // ¾çÂÊ ³¡ºÎÅÍ ºñ±³
-				suc = 0;  // ´ëÄªÀÌ ¾î±ß³ª´Â ¼ø°£ break
+			if(s.charAt(i) != s.charAt(s.length() - i - 1)) {  // ì–‘ìª½ ëë¶€í„° ë¹„êµ
+				suc = 0;  // ëŒ€ì¹­ì´ ì–´ê¸‹ë‚˜ëŠ” ìˆœê°„ break
 				break;
 			}
 		}
@@ -29,8 +29,5 @@ public class isPalindrome {
 		else {
 			System.out.println("false");
 		}
-				
-
 	}
-
 }
