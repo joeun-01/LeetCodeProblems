@@ -1,60 +1,47 @@
-package ¿¬½À¿ë;
+package ì—°ìŠµìš©;
+
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
+import java.util.HashMap;
+import java.util.Collections;
 
 public class threeSum {
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in);
-		
+
 		int nums[] = new int[6];
-		
+
 		int i, j;
-		for(i = 0; i < nums.length; i++) {
+		for (i = 0; i < nums.length; i++) {
 			nums[i] = keyboard.nextInt();
 		}
-		
-		ArrayList<Integer> num = new ArrayList<>();
+
+		List<List<Integer>> output = new ArrayList<>();
+		HashMap<Integer, Integer> comb = new HashMap<>();
 		for(i = 0; i < nums.length; i++) {
-			num.add(i, nums[i]);
-		}
-						
-		List<List<Integer>> sum = new ArrayList<>();
-		// ±âÁØÀ» Àâ°í ¾çÂÊÀ» °í¸§ ¸¸¾à¿¡ 0ÀÌ¸é Àı´ñ°ªÀÌ ¶È°°Àº ¾ÖµéÀ» Ã£±â, ±âÁØÀÌ ¾ç¼ö¸é ´õÇÑ Àı´ñ°ªÀÌ ±âÁØÀÌ µÇ´Â À½¼ö 2°³ °í¸£±â
-		for(i = 0; i < num.size(); i++) {
-			ArrayList<Integer> inside = new ArrayList<>();
-			if(num.get(i) == 0) {
-				inside.add(num.get(i));
-				for(j = 0; j < num.size(); j++) {
-					if(i == j) {
-						continue;
-					}
-					if(num.get(j) == 0 && num.lastIndexOf(0) != j) {
-						if(!inside.contains(num.get(j)) && !inside.contains(num.get(num.lastIndexOf(0)))) {
-							inside.add(num.get(j));
-							inside.add(num.get(num.lastIndexOf(0)));
-						}
-					}
-					else if(num.get(j) != 0 && num.indexOf(-num.get(i)) != -1) {  // ¾øÀ¸¸é -1 return
-						if(!inside.contains(num.get(j)) && !inside.contains(num.get(num.indexOf(-num.get(i))) {
-							inside.add(num.get(j));
-							inside.add(num.get(num.indexOf(-num.get(i))));
-						}						
+			for(j = 0; j < nums.length; j++) {
+				if(i == j) {
+					continue;
+				}
+				if(comb.containsValue(nums[j])) {
+					List<Integer> inside = new ArrayList<>();
+					inside.add(nums[i]);
+					inside.add(nums[j]);
+					inside.add(-nums[i] - nums[j]);
+					Collections.sort(inside);
+					if(!output.contains(inside)) {
+						output.add(inside);
 					}
 				}
-				
+				else {
+					comb.put(nums[j], -nums[i] - nums[j]);
+				}
 			}
-			else if(nums[i] > 0) {
-				
-			}
-			else if(nums[i] < 0) {
-				
-			}
-			
+			comb.clear();
 		}
-		
 
+		System.out.println(output.toString());
 	}
 
 }
