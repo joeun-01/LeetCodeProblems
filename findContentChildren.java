@@ -1,8 +1,8 @@
 /**
  * int g[], int s[]
- * g[] : °¢ ¾ÆÀÌµéÀÌ ¿øÇÏ´Â ÄíÅ°ÀÇ ÃÖ¼Ò Å©±â, s[] : Á¸ÀçÇÏ´Â °¢ ÄíÅ°ÀÇ Å©±â
- * ¾ÆÀÌµé¿¡°Ô ÄíÅ°¸¦ ³ª´©¾îÁÙ ¶§ ¹ÞÀ» ¼ö ÀÖ´Â ¾ÆÀÌµéÀÇ ÃÖ´ë ¼ö¸¦ ±¸ÇÏ±â
- *  - ¾ÆÀÌµéÀÌ ¸Ô°í½ÍÀº Å©±âº¸´Ù ÄíÅ°°¡ Å©°Å³ª °°À» °æ¿ì¿¡¸¸ Áö±Þ °¡´É
+ * g[] : ê° ì•„ì´ë“¤ì´ ì›í•˜ëŠ” ì¿ í‚¤ì˜ ìµœì†Œ í¬ê¸°, s[] : ì¡´ìž¬í•˜ëŠ” ê° ì¿ í‚¤ì˜ í¬ê¸°
+ * ì•„ì´ë“¤ì—ê²Œ ì¿ í‚¤ë¥¼ ë‚˜ëˆ„ì–´ì¤„ ë•Œ ë°›ì„ ìˆ˜ ìžˆëŠ” ì•„ì´ë“¤ì˜ ìµœëŒ€ ìˆ˜ë¥¼ êµ¬í•˜ê¸°
+ *  - ì•„ì´ë“¤ì´ ë¨¹ê³ ì‹¶ì€ í¬ê¸°ë³´ë‹¤ ì¿ í‚¤ê°€ í¬ê±°ë‚˜ ê°™ì„ ê²½ìš°ì—ë§Œ ì§€ê¸‰ ê°€ëŠ¥
  */
 package leetcode;
 import java.util.Scanner;
@@ -15,7 +15,7 @@ public class findContentChildren {
 		int g[] = new int[3];
 		int s[] = new int[2];
 		
-		// °ª ÀÔ·Â ¹Þ±â
+		// ê°’ ìž…ë ¥ ë°›ê¸°
 		int i, j;
 		for(i = 0; i < g.length; i++) {
 			g[i] = keyboard.nextInt();
@@ -24,23 +24,23 @@ public class findContentChildren {
 			s[i] = keyboard.nextInt();
 		}
 		
-		Arrays.sort(g);  // Å©±âº°·Î ÄíÅ° ¹è±ÞÀ» ½±°Ô ÇÏ±â À§ÇØ¼­ ¿À¸§Â÷¼ø Á¤·Ä
+		Arrays.sort(g);  // í¬ê¸°ë³„ë¡œ ì¿ í‚¤ ë°°ê¸‰ì„ ì‰½ê²Œ í•˜ê¸° ìœ„í•´ì„œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 		Arrays.sort(s);
 		
-		int ate = 0;  // ÄíÅ°¸¦ ¸ÔÀ» ¼ö ÀÖ´Â ¾ÆÀÌµéÀÇ ¼ö
+		int ate = 0;  // ì¿ í‚¤ë¥¼ ë¨¹ì„ ìˆ˜ ìžˆëŠ” ì•„ì´ë“¤ì˜ ìˆ˜
 		i = 0;
 		j = 0;
-		while(i < g.length && j < s.length) {  // ¾ÆÀÌµéÀÌ³ª ÄíÅ° µÑ Áß ÇÏ³ª¶óµµ ³¡±îÁö È®ÀÎÇÑ °æ¿ì break
-			if(g[i] <= s[j]) {  // ¾ÆÀÌ¿¡°Ô ÄíÅ°¸¦ ÁÙ ¼ö ÀÖ´Â °æ¿ì
+		while(i < g.length && j < s.length) {  // ì•„ì´ë“¤ì´ë‚˜ ì¿ í‚¤ ë‘˜ ì¤‘ í•˜ë‚˜ë¼ë„ ëê¹Œì§€ í™•ì¸í•œ ê²½ìš° break
+			if(g[i] <= s[j]) {  // ì•„ì´ì—ê²Œ ì¿ í‚¤ë¥¼ ì¤„ ìˆ˜ ìžˆëŠ” ê²½ìš°
 				ate++;  
-				i++;  // ¾ÆÀÌ¿Í ÄíÅ°°¡ ¸ÅÄªµÇ¾ú±â ¶§¹®¿¡ µÑ ´Ù ³Ñ¾î°¨
+				i++;  // ì•„ì´ì™€ ì¿ í‚¤ê°€ ë§¤ì¹­ë˜ì—ˆê¸° ë•Œë¬¸ì— ë‘˜ ë‹¤ ë„˜ì–´ê°
 				j++;
 			}
-			else {  // ¾ÆÀÌ¿¡°Ô ÄíÅ°¸¦ ÁÙ ¼ö ¾ø´Â °æ¿ì
-				j++;  // ¿À¸§Â÷¼ø Á¤·ÄÀ» Çß±â ¶§¹®¿¡ ÀÌ °æ¿ì¿¡´Â ÀÌ ÄíÅ°¸¦ ¹ÞÀ» ¼ö ÀÖ´Â ¾ÆÀÌ°¡ ´õ ÀÌ»ó Á¸ÀçÇÏÁö ¾ÊÀ½ - ³Ñ¾î°¨
+			else {  // ì•„ì´ì—ê²Œ ì¿ í‚¤ë¥¼ ì¤„ ìˆ˜ ì—†ëŠ” ê²½ìš°
+				j++;  // ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ì„ í–ˆê¸° ë•Œë¬¸ì— ì´ ê²½ìš°ì—ëŠ” ì´ ì¿ í‚¤ë¥¼ ë°›ì„ ìˆ˜ ìžˆëŠ” ì•„ì´ê°€ ë” ì´ìƒ ì¡´ìž¬í•˜ì§€ ì•ŠìŒ - ë„˜ì–´ê°
 			}
 		}
 		
-		System.out.println(ate);
+		System.out.println(ate);  // ì •ë‹µ 
 	}
 }
