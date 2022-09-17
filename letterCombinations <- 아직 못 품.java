@@ -30,7 +30,7 @@ public class letterCombinations {
 			letter(word, digit + 1, alpha, output);
 			output = output.substring(0, output.length() - 1);
 		}
-	}
+	} // 하하하
 	/*
 	class Solution {
     public List<String> letterCombinations(String digits) {
