@@ -8,6 +8,7 @@ public class letterCombinations {
 	static List<String> list = new ArrayList<>();
 
 	public static void main(String[] args) {
+		// ㅋ ㅋㅋ
 		Scanner keyboard = new Scanner(System.in);
 
 		String digits = keyboard.nextLine();
