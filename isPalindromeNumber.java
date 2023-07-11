@@ -1,19 +1,19 @@
 /**
- * ¼ıÀÚ·Î ÀÌ·ç¾îÁø String
- * ¼ıÀÚ ¹®ÀÚ¿­ÀÌ ´ëÄªÀ¸·Î ÀÌ·ç¾îÁ® ÀÖ´ÂÁö È®ÀÎ
+ * ìˆ«ìë¡œ ì´ë£¨ì–´ì§„ String
+ * ìˆ«ì ë¬¸ìì—´ì´ ëŒ€ì¹­ìœ¼ë¡œ ì´ë£¨ì–´ì ¸ ìˆëŠ”ì§€ í™•ì¸
  * */
-package ¿¬½À¿ë;
+package ì—°ìŠµìš©;
 import java.util.Scanner;
 
 public class isPalindromeNumber {
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in);
 		
-		// ¹®ÀÚ¿­ ÀÔ·Â¹Ş±â
+		// ë¬¸ìì—´ ì…ë ¥ë°›ê¸°
 		int x = keyboard.nextInt();		
 		String x1 = Integer.toString(x);
 	
-		String odd_even;  // ¹®ÀÚ¿­ ±æÀÌ°¡ Â¦¼öÀÏ ¶§¿Í È¦¼öÀÏ ¶§¸¦ ³ª´©¾î¼­ »ı°¢
+		String odd_even;  // ë¬¸ìì—´ ê¸¸ì´ê°€ ì§ìˆ˜ì¼ ë•Œì™€ í™€ìˆ˜ì¼ ë•Œë¥¼ ë‚˜ëˆ„ì–´ì„œ ìƒê°
 		
 		if(x1.length() % 2 == 0) {
 			odd_even = "even";
@@ -26,22 +26,22 @@ public class isPalindromeNumber {
 		int middle = Math.round(x1.length() / 2);
 		
 		if(odd_even.equals("odd")) {
-			for(i = 1; i <= middle; i++) {  // °¡¿îµ¥ºÎÅÍ ½ÃÀÛÇØ¼­ ¾çÂÊÀ» ºñ±³ÇÏ´Â ¹æ½Ä
+			for(i = 1; i <= middle; i++) {  // ê°€ìš´ë°ë¶€í„° ì‹œì‘í•´ì„œ ì–‘ìª½ì„ ë¹„êµí•˜ëŠ” ë°©ì‹
 				if(!x1.substring(middle - i, middle - i + 1).equals(x1.substring(middle + i, middle + i + 1))){
-					success = 0;  // ´ëÄªÀÌ ±úÁö¸é break
+					success = 0;  // ëŒ€ì¹­ì´ ê¹¨ì§€ë©´ break
 					break;
 				}
 			}
 		}
 		else if(odd_even.equals("even")) {
-			for(i = 1; i<= middle; i++) {  // °¡Àå ¾ÈÂÊ¿¡ ÀÖ´Â ½ÖºÎÅÍ ¼­·Î¸¦ ºñ±³ÇÏ´Â ¹æ½Ä
+			for(i = 1; i<= middle; i++) {  // ê°€ì¥ ì•ˆìª½ì— ìˆëŠ” ìŒë¶€í„° ì„œë¡œë¥¼ ë¹„êµí•˜ëŠ” ë°©ì‹
 				if(!x1.substring(middle - i, middle - i + 1).equals(x1.substring(middle + i - 1, middle + i))){
-					success = 0;  // ´ëÄªÀÌ ±úÁö¸é break
+					success = 0;  // ëŒ€ì¹­ì´ ê¹¨ì§€ë©´ break
 					break;
 				}
 			}
 		}
-		
+		// í¬ì•„ì•„ì•„ì•™
 		if(success == 1) {
 			System.out.println("true");
 		}
